@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: app-exemple-platform-obs
+  description: "app-exemple-platform-obs"
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: "app-exemple-platform-obs"
+    github.com/project-slug: veecode-platform/app-exemple-platform-obs
+    vault.io/secrets-path: "app-exemple-platform-obs"
+    grafana/tag-selector: "app-exemple-platform-obs"
+    grafana/alert-label-selector: "alertname=app-exemple-platform-obs"
+    argocd/proxy-url: '/argocd/api'
+    argocd/app-name: "app-exemple-platform-obs"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: admin
+
+
+

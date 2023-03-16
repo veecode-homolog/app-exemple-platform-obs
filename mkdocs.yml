@@ -1,0 +1,8 @@
+site_name: "app-exemple-platform-obs"
+site_description: "app-exemple-platform-obs"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
