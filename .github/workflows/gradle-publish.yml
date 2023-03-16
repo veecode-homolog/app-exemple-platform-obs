@@ -147,7 +147,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          destination_branch: main
+          destination_branch: master
           source_file:  'api'
           destination_repo: veecode-platform/devportal-catalog
           destination_folder: '/'
