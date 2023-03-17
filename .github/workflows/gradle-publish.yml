@@ -54,6 +54,8 @@ jobs:
           yq e '''
           del(.metadata.creationTimestamp) | del(.status) |
           .metadata.labels."backstage.io/kubernetes-id"="app-exemple-platform-obs"''' -i ./k8s/service.yaml
+          yq e '.spec.selector.app="app-exemple-platform-obs"' -i ./k8s/service.yaml
+
           kubectl create ingress app-exemple-platform-obs --class=kong --namespace=vkpr \
           --annotation "cert-manager.io/cluster-issuer"="certmanager-issuer" \
           --annotation "konghq.com/https-redirect-status-code"="308" \
@@ -61,7 +63,7 @@ jobs:
           --annotation "konghq.com/strip-path"="true" \
           --annotation "konghq.com/preserve-host"="true" \
           --annotation "konghq.com/protocols"="https" \
-          --rule="rest.platform.vee.codes/app-exemple-platform-obs*=app-exemple-platform-obs:8080,tls=rest.platform.vee.codes-tls" --dry-run=client -o=yaml > ./k8s/ingress.yaml
+          --rule="rest.platform.vee.codes/app-exemple-platform-obs*=app-exemple-platform-obs-service-0:8080,tls=rest.platform.vee.codes-tls" --dry-run=client -o=yaml > ./k8s/ingress.yaml
           yq e 'del(.metadata.creationTimestamp) | del(.status)' -i ./k8s/ingress.yaml
           yq e '.metadata.labels."backstage.io/kubernetes-id"="app-exemple-platform-obs"' -i ./k8s/ingress.yaml
 
