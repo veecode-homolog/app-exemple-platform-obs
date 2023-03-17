@@ -46,12 +46,16 @@ jobs:
           .spec.template.spec.containers[0].imagePullPolicy= "IfNotPresent" |
           .spec.template.spec.containers[0].resources.requests.memory= "256Mi" |
           .spec.template.spec.containers[0].resources.limits.memory= "512Mi" |
+          .spec.template.metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
+          .spec.template.metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |
           del(.status) | del(.metadata.creationTimestamp) | del(.spec.template.metadata.creationTimestamp) | del(.spec.strategy)
           ''' -i ./k8s/deployment.yaml
 
           kubectl create service clusterip app-exemple-platform-obs-service-0 --namespace=vkpr \
           --tcp=8080:8080 --dry-run=client -o=yaml > ./k8s/service.yaml
           yq e '''
+          .metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
+          .metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |          
           del(.metadata.creationTimestamp) | del(.status) |
           .metadata.labels."backstage.io/kubernetes-id"="app-exemple-platform-obs"''' -i ./k8s/service.yaml
           yq e '.spec.selector.app="app-exemple-platform-obs"' -i ./k8s/service.yaml
@@ -63,6 +67,8 @@ jobs:
           --annotation "konghq.com/strip-path"="true" \
           --annotation "konghq.com/preserve-host"="true" \
           --annotation "konghq.com/protocols"="https" \
+          --annotation "sidecar.opentelemetry.io/inject"="true" \
+          --annotation "instrumentation.opentelemetry.io/inject-java"="true" \
           --rule="rest.platform.vee.codes/app-exemple-platform-obs*=app-exemple-platform-obs-service-0:8080,tls=rest.platform.vee.codes-tls" --dry-run=client -o=yaml > ./k8s/ingress.yaml
           yq e 'del(.metadata.creationTimestamp) | del(.status)' -i ./k8s/ingress.yaml
           yq e '.metadata.labels."backstage.io/kubernetes-id"="app-exemple-platform-obs"' -i ./k8s/ingress.yaml
