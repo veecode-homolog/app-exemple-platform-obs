@@ -25,6 +25,6 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<String> get() {
-        return restTemplate.getForEntity("http://app-exemple-platform-obs:8081/", String.class);
+        return restTemplate.getForEntity("http://app-exemple-platform-k8s:8081/", String.class);
     }
 }
