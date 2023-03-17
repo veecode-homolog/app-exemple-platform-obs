@@ -46,8 +46,8 @@ jobs:
           .spec.template.spec.containers[0].imagePullPolicy= "IfNotPresent" |
           .spec.template.spec.containers[0].resources.requests.memory= "256Mi" |
           .spec.template.spec.containers[0].resources.limits.memory= "512Mi" |
-          .spec.template.metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
-          .spec.template.metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |
+          .metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
+          .metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |
           del(.status) | del(.metadata.creationTimestamp) | del(.spec.template.metadata.creationTimestamp) | del(.spec.strategy)
           ''' -i ./k8s/deployment.yaml
 
