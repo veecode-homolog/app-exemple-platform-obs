@@ -2,7 +2,7 @@ project:
   name: app-exemple-platform-obs
   description: app-exemple-platform-obs
   java:
-    package: codes.platform.demo
+    package: codes.platform.demo.
   language: java
   framework: springboot
   applicationPort: 8080

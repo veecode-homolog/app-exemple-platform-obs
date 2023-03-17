@@ -1,1 +1,21 @@
+version: '3.8'
+services:
+  app-exemple-platform-obs:
+    container_name: app-exemple-platform-obs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - OTEL_SERVICE_NAME=app-exemple-platform-obs
+      - OTEL_METRICS_EXPORTER=none
+      - OTEL_TRACES_EXPORTER=jaeger
+      - OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250
+    ports:
+      - "8080:8080"
 
+  jaeger:
+    container_name: jaeger
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "14250:14250"
