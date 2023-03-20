@@ -54,8 +54,8 @@ jobs:
           kubectl create service clusterip app-exemple-platform-obs-service-0 --namespace=vkpr \
           --tcp=8080:8080 --dry-run=client -o=yaml > ./k8s/service.yaml
           yq e '''
-          .spec.template.metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
-          .spec.template.metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |          
+          .metadata.annotations."sidecar.opentelemetry.io/inject"= "true" |
+          .metadata.annotations."instrumentation.opentelemetry.io/inject-java"= "true" |          
           del(.metadata.creationTimestamp) | del(.status) |
           .metadata.labels."backstage.io/kubernetes-id"="app-exemple-platform-obs"''' -i ./k8s/service.yaml
           yq e '.spec.selector.app="app-exemple-platform-obs"' -i ./k8s/service.yaml
