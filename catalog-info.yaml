@@ -12,7 +12,7 @@ metadata:
     grafana/alert-label-selector: "alertname=app-exemple-platform-obs"
     argocd/proxy-url: '/argocd/api'
     argocd/app-name: "app-exemple-platform-obs"
-    kong-manager/service-name: vkpr.app-exemple-platform-obs.app-exemple-platform-obs-service-0.8080
+    kong-manager/service-name: vkpr.app-exemple-platform-obs-service-0.8080
     kong-manager/instance: /kong-manager/api
 spec:
   type: service
