@@ -2,6 +2,7 @@
 name: Build Publish Spring Boot 
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
 
