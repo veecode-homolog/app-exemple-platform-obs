@@ -81,7 +81,7 @@ jobs:
         with:
           use_rsync: true
           source_file: 'k8s/'
-          destination_repo: veecode-apr/argocd-repository
+          destination_repo: veecode-homolog/argocd-repository
           destination_folder: '/app-exemple-platform-obs/'
           destination_branch: 'main'
           user_email: 'veecode-bot@vee.codes'
@@ -158,7 +158,7 @@ jobs:
         with:
           destination_branch: main
           source_file:  'api'
-          destination_repo: veecode-apr/devportal-catalog
+          destination_repo: veecode-homolog/devportal-catalog
           destination_folder: '/'
           user_name: ${{ github.actor }}
           commit_message: 'Pipeline commit'
