@@ -4,7 +4,7 @@ name: Build Publish Spring Boot
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build-project:
@@ -83,7 +83,7 @@ jobs:
           source_file: 'k8s/'
           destination_repo: veecode-platform/argocd-repository
           destination_folder: '/app-exemple-platform-obs/'
-          destination_branch: 'master'
+          destination_branch: 'main'
           user_email: 'veecode-bot@vee.codes'
           user_name: 'veecode-bot'
           commit_message: 'A custom message for the commit'
@@ -156,7 +156,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          destination_branch: master
+          destination_branch: main
           source_file:  'api'
           destination_repo: veecode-platform/devportal-catalog
           destination_folder: '/'
