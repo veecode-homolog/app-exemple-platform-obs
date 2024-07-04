@@ -7,7 +7,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     backstage.io/kubernetes-id: "app-exemple-platform-obs"
     github.com/project-slug: veecode-platform/app-exemple-platform-obs
-    vault.io/secrets-path: "app-exemple-platform-obs"
+    vault.io/secrets-path: "secrets/app-exemple-platform-obs"
     grafana/dashboard-selector: "app-exemple-platform-obs"
     grafana/alert-label-selector: "alertname=app-exemple-platform-obs"
     argocd/proxy-url: '/argocd/api'
