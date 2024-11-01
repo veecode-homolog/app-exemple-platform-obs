@@ -8,8 +8,8 @@ metadata:
     backstage.io/kubernetes-id: "app-exemple-platform-obs"
     github.com/project-slug: veecode-platform/app-exemple-platform-obs
     vault.io/secrets-path: "app-exemple-platform-obs"
-    #grafana/dashboard-selector: "app-exemple-platform-obs"
-    #grafana/alert-label-selector: "alertname=app-exemple-platform-obs"
+    grafana/dashboard-selector: "app-exemple-platform-obs"
+    grafana/alert-label-selector: "alertname=app-exemple-platform-obs"
     argocd/proxy-url: '/argocd/api'
     argocd/app-name: "app-exemple-platform-obs"
     kong-manager/service-name: veecode-apr.app-exemple-platform-obs-service-0.8080
