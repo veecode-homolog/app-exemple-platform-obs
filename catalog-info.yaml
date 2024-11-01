@@ -15,7 +15,7 @@ metadata:
     kong-manager/service-name: veecode-apr.app-exemple-platform-obs-service-0.8080
     kong-manager/instance: api
 spec:
-  type: service
+  type: devops
   lifecycle: experimental
   owner: "group:default/admin"
 
