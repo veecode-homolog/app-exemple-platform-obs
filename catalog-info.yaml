@@ -14,11 +14,10 @@ metadata:
     argocd/app-name: "app-exemple-platform-obs"
     kong-manager/service-name: veecode-apr.app-exemple-platform-obs-service-0.8080
     kong-manager/instance: kongxpto
-    kong-manager/spec: openapi-swagger.yaml
 spec:
   type: service
   lifecycle: experimental
-  owner: admin
+  owner: "group:default/admin"
 
 
 
