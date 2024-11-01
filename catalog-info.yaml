@@ -13,7 +13,7 @@ metadata:
     argocd/proxy-url: '/argocd/api'
     argocd/app-name: "app-exemple-platform-obs"
     kong-manager/service-name: veecode-apr.app-exemple-platform-obs-service-0.8080
-    kong-manager/instance: konginstance1
+    kong-manager/instance: kongxpto
 spec:
   type: service
   lifecycle: experimental
