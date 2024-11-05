@@ -20,11 +20,6 @@ tags:
     externalDocs:
       description: Find out more
       url: http://swagger.io
-x-kong-basic-auth:
-  name: basic-auth
-  enabled: true
-  config:
-    hide_credentials: false
 paths:
   /actuator/health:
     get:
