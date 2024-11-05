@@ -1,45 +1,53 @@
 openapi: 3.0.0
 info:
-    description: 'app-exemple-platform-obs Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.'
-    version: 1.0.2
-    title: app-exemple-platform-obs
-    termsOfService: http://swagger.io/terms/
-    contact:
-        email: apiteam@swagger.io
-    license:
-        name: Apache 2.0
-        url: http://www.apache.org/licenses/LICENSE-2.0.html
-tags:
-    - name: spec
-      description: Health
-      externalDocs:
-        description: Find out more
-        url: http://swagger.io
-paths:
-    /actuator/health:
-        get:
-            tags:
-                - spec
-            description: Health
-            operationId: health
-            responses:
-                '200':
-                    description: successful operation
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    $ref: '#/components/schemas/Health'
-                '404':
-                    description: health not found
+  description: >-
+    app-exemple-platform-obs Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net,
+    #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization
+    filters.
+  version: 1.0.2
+  title: app-exemple-platform-obs
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-    - url: https://petstore.swagger.io/v2
+  - url: https://petstore.swagger.io/v2
+tags:
+  - name: spec
+    description: Health
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+x-kong-basic-auth:
+  name: basic-auth
+  enabled: true
+  config:
+    hide_credentials: false
+paths:
+  /actuator/health:
+    get:
+      tags:
+        - spec
+      description: Health
+      operationId: health
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Health'
+        '404':
+          description: health not found
 components:
-    schemas:
-        Health:
-            type: object
-            properties:
-                status:
-                    type: string
-                    example: UP
+  schemas:
+    Health:
+      type: object
+      properties:
+        status:
+          type: string
+          example: UP
